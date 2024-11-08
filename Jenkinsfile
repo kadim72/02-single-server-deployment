@@ -35,9 +35,9 @@ pipeline {
                         source app/venv/bin/activate
                         cd /home/ubuser/app/
                         pip install -r requirements.txt
-                        echo "----- fin pip "                    
-EOF
-                        ssh -i $MY_SSH_KEY -o StrictHostKeyChecking=no  -tt ${username}@${SERVER_IP} sudo systemctl restart flaskapp.service && echo "Service restarted successfully" || echo "Failed to restart service"
+                        echo "----- fin pip "    
+                        sudo systemctl restart flaskapp.service &                
+EOF                     
                     '''
                 }
             }
