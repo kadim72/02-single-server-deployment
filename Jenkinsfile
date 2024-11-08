@@ -36,7 +36,7 @@ pipeline {
                         cd /home/ubuser/app/
                         pip install -r requirements.txt
                         echo "----- fin pip " 
-                        sudo  systemctl restart flaskapp.service
+                        ssh -i $MY_SSH_KEY -o StrictHostKeyChecking=no  -tt ${username}@${SERVER_IP} sudo  systemctl restart flaskapp.service
 EOF
                     '''
                 }
