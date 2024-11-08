@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage('Package code') {
+        stage('Package code in zip format') {
             steps {
                 sh "zip -r myapp.zip ./* -x '*.git*'"
                 sh "ls -lart"
