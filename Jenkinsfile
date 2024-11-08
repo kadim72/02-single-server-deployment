@@ -35,7 +35,7 @@ pipeline {
                         cd /home/ubuser/app/
                         pip install -r requirements.txt
                         echo "----- fin pip " 
-                        sudo systemctl restart flaskapp.service
+                        sudo -n systemctl restart flaskapp.service
 EOF
                     '''
                 }
