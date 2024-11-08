@@ -30,6 +30,7 @@ pipeline {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'MY_SSH_KEY', usernameVariable: 'username')]) {
                     sh '''
                     scp -i $MY_SSH_KEY -o StrictHostKeyChecking=no myapp.zip  ${username}@${SERVER_IP}:/home/ubuser/
+                    ssh -i $MY_SSH_KEY -o StrictHostKeyChecking=no  -tt ${username}@${SERVER_IP} "unzip -o /home/ubuser/myapp.zip -d /home/ubuser/app/"
                     ssh -i $MY_SSH_KEY -o StrictHostKeyChecking=no  -tt ${username}@${SERVER_IP} sh /home/ubuser/app/install.sh
                     '''
                 }
