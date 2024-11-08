@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-      options {
-        timeout(time: 3, unit: 'MINUTES')  
-    }
-
+ 
     environment {
         SERVER_IP = credentials('prod-server-ip')
         PWD = credentials('pwd-ubuser')
