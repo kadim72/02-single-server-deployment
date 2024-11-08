@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SERVER_IP = credentials('prod-server-ip')
-        PWD = credentials ('pwd-ubuser')
+        PWD = credentials('pwd-ubuser')
     }
     stages {
         stage('Setup') {
