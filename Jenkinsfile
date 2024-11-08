@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         SERVER_IP = credentials('prod-server-ip')
+        PWD = credentials ('pwd-ubuser')
     }
     stages {
         stage('Setup') {
@@ -33,7 +34,7 @@ pipeline {
                         source app/venv/bin/activate
                         cd /home/ubuser/app/
                         pip install -r requirements.txt
-                        sudo systemctl restart flaskapp.service
+                        echo "$PWD" | sudo -S systemctl restart flaskapp.service
 EOF
                     '''
                 }
