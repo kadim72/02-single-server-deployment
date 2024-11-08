@@ -34,7 +34,7 @@ pipeline {
                         source app/venv/bin/activate
                         cd /home/ubuser/app/
                         pip install -r requirements.txt
-                        echo "$PWD" | sudo -S systemctl restart flaskapp.service
+                        sudo systemctl restart flaskapp.service
 EOF
                     '''
                 }
